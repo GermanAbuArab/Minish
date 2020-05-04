@@ -3,7 +3,7 @@
 #define MAXWORDS 256        // cantidad máxima de palabras en la línea
 #define HISTORY_FILE	".minish_history"   // nombre del archivo que almacena historia de comandos
 
-/*
+
 #include <unistd.h>
 #include <stdlib.h>
 #include <string.h>
@@ -19,7 +19,7 @@
 #include <fcntl.h>
 
 #define MAXARG 100
-*/
+
 // Variables
 extern int globalstatret;	// guarda status del ultimo comando - deberá definirse en el main
 
