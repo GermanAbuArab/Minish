@@ -1,0 +1,55 @@
+#include "minish.h"
+
+
+
+
+ struct builtin_struct builtin_arr[] = {
+        { "exit", builtin_exit, HELP_EXIT },
+	{ "help", builtin_help, HELP_HELP },
+	{ "pid", builtin_pid, HELP_PID },
+ { "history", builtin_history, HELP_HISTORY },
+        { "dir", builtin_dir, HELP_DIR },
+        { "status", builtin_status, HELP_STATUS },
+ { "uid", builtin_uid, HELP_UID },
+        { "getenv", builtin_getenv, HELP_GETENDV },
+        { "gid", builtin_gid, HELP_GID },
+        { "setenv", builtin_setenv, HELP_SETENV },
+        { "unsetenv", builtin_unsetenv, HELP_UNSETENV },
+        { "cd", builtin_cd, HELP_CD },
+        { NULL, NULL, NULL }
+  };
+
+
+
+
+
+int ejecutar(int argc, char **argv) {
+        if (strcmp(argv[0], "exit") == 0) {
+            return builtin_exit(argc, argv);
+        } else if (strcmp(argv[0], "pid") == 0) {
+
+        } else if (strcmp(argv[0], "uid") == 0) {
+            // do something else
+
+        } else if (strcmp(argv[0], "getenv") == 0) {
+            // do something else
+        } else if (strcmp(argv[0], "setenv") == 0) {
+            // do something else
+        } else if (strcmp(argv[0], "cd") == 0) {
+            // do something else
+        } else if (strcmp(argv[0], "status") == 0) {
+            // do something else
+        } else if (strcmp(argv[0], "help") == 0) {
+            // do something else
+        } else if (strcmp(argv[0], "dir") == 0) {
+            // do something else
+        } else if (strcmp(argv[0], "history") == 0) {
+            // do something else
+	} else if (strcmp(argv[0], "soy") == 0 && strcmp(argv[1], "tu") == 0  && strcmp(argv[2], "amigo") == 0 ) {
+		printf("No nadie quiere ser tu amigo \n");
+
+        } else /* default: */
+        {
+            externo(argc, argv);
+        }
+}
