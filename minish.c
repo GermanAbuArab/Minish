@@ -14,13 +14,14 @@ int main() {
     char str[MAXLINE];
     int argc = MAXWORDS;
     char *argv[MAXWORDS];
-    while(strcmp(str,"EXIT\n")!=0) {
+ 	int val=0;
+    while(val!=10) {
         printf("(minish) >");
         fgets(str,MAXLINE,stdin);
         if(str!=NULL) {
             argc =linea2argv(str,argc,argv);
-            ejecutar(argc,argv);
-        }
+       	    val=ejecutar(argc,argv);
+       	}
         else {
             //handelear error de strcmp
         }

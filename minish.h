@@ -14,6 +14,11 @@
 #define HELP_SETENV  "setenv var valor - agrega o cambia valor de variable de ambiente"
 #define HELP_STATUS  "status - muestra status de retorno de ultimo comando ejecutado"
 #define HELP_UID     "uid - muestra nombre y número de usuario dueño del minish"
+#define HELP_GID     "gid - muestra nombre y numeros de un grupo"
+#define HELP_UNSETENV "unsetenv var [var] - quita el valor de variable de ambiente "
+
+
+
 
 #include <unistd.h>
 #include <stdlib.h>

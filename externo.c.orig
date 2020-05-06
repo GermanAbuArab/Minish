@@ -2,5 +2,5 @@
 
 int externo(int argc, char **argv) {
     printf("entro a externo");
-    return 0;
+	return 0;
 }
