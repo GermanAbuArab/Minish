@@ -23,7 +23,7 @@ int main() {
        	    val=ejecutar(argc,argv);
        	}
         else {
-            //handelear error de strcmp
+            // todo handelear error de strcmp
         }
     }
 

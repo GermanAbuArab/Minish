@@ -1,7 +1,7 @@
 #define MAXLINE 1024        // tamaño máximo de la línea de entrada
 #define MAXCWD 1024         // tamaño máximo para alojar el pathname completo del directorio corriente
 #define MAXWORDS 256        // cantidad máxima de palabras en la línea
-#define HISTORY_FILE	".minish_history"   // nombre del archivo que almacena historia de comandos
+#define HISTORY_FILE    ".minish_history"   // nombre del archivo que almacena historia de comandos
 
 
 #define HELP_CD      "cd [..|dir] - cambia de directorio corriente"
@@ -37,33 +37,21 @@
 #define MAXARG 100
 
 // Variables
-extern int globalstatret;	// guarda status del ultimo comando - deberá definirse en el main
+extern int globalstatret;    // guarda status del ultimo comando - deberá definirse en el main
 
 // Funciones
-extern int builtin_exit (int argc, char ** argv);
-extern int builtin_help (int argc, char ** argv);
-extern int builtin_history (int argc, char ** argv);
-extern int builtin_status (int argc, char ** argv);
-extern int builtin_cd (int argc, char ** argv);
-extern int builtin_dir (int argc, char ** argv);
-extern int builtin_getenv (int argc, char ** argv);
-extern int builtin_gid (int argc, char ** argv);
-extern int builtin_setenv (int argc, char ** argv);
-extern int builtin_pid (int argc, char ** argv);
-extern int builtin_uid (int argc, char ** argv);
-extern int builtin_unsetenv (int argc, char ** argv);
-extern int ejecutar (int argc, char ** argv);
-extern int externo (int argc, char ** argv);
-extern int linea2argv(char *linea, int argc, char **argv);
+extern int builtin_exit builtin_help builtin_history builtin_status builtin_cd builtin_dir builtin_getenv builtin_gid builtin_setenv builtin_pid builtin_uid builtin_unsetenv
+
 
 struct builtin_struct {         // struct con información de los builtins
     char *cmd;                  // nombre del comando builtin
-    int (*func) (int, char **); // la función que lo ejecuta
+    int (*func)(int, char **); // la función que lo ejecuta
     char *help_txt;             // el texto de ayuda
 };
 
 extern struct builtin_struct builtin_arr[];
-extern struct builtin_struct * builtin_lookup(char *cmd);
+
+extern struct builtin_struct *builtin_lookup(char *cmd);
 /*
     builtin_arr es una lista de los builtins, que se recorrerá en forma lineal.
     Podría usarse una estructura que mejorara la velocidad de búsqueda, pero
@@ -96,3 +84,33 @@ extern struct builtin_struct * builtin_lookup(char *cmd);
 #define HELP_STATUS  "status - muestra status de retorno de ultimo comando ejecutado"
 #define HELP_UID     "uid - muestra nombre y número de usuario dueño del minish"
 */
+
+
+int ejecutar(int argc, char **argv) {
+    printf("%s", argv[0]);
+    if (strcmp(argv[0], "exit") == 0) {
+        // do something
+    } else if (strcmp(argv[0], "pid") == 0) {
+        printf("hola");mak
+    } else if (strcmp(argv[0], "uid") == 0) {
+        // do something else
+
+    } else if (strcmp(argv[0], "getenv") == 0) {
+        // do something else
+    } else if (strcmp(argv[0], "setenv") == 0) {
+        // do something else
+    } else if (strcmp(argv[0], "cd") == 0) {
+        // do something else
+    } else if (strcmp(argv[0], "status") == 0) {
+        // do something else
+    } else if (strcmp(argv[0], "help") == 0) {
+        // do something else
+    } else if (strcmp(argv[0], "dir") == 0) {
+        // do something else
+    } else if (strcmp(argv[0], "history") == 0) {
+        // do something else
+    } else /* default: */
+    {
+        externo(argc, argv);
+    }
+}
