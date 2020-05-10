@@ -1,0 +1,36 @@
+#include "minish.h"
+
+int builtin_gid(int argc, char **argv) {
+   gid_t gid =getgid();// no hay que handeleaer errores porque nunca falla
+   printf("El id del grupo Principal es %d\n",gid);
+    gid_t *group; int nogroups; long ngroups_max; if(getgroups(gidsize, grouplist) !=-1) { //Getgroups retorna el numero de grupos o -1 si hay algun error
+
+        printf("Grupos secundarios:"); ngroups_max = sysconf(_SC_NGROUPS_MAX) + 1; for(int i = 0; i < gidsize; i++ ) { group = (gid_t *)malloc(ngroups_max *sizeof(gid_t)); 
+if(grouplist[i]!=gid) {
+                printf( "%d ", ( int ) grouplist[i] ); //Si hay grupos que no sean el principal los imprimo
+ngroups = getgroups(ngroups_max, group);            }
+        }
+        printf("\n");
+
+    } else {
+        printf("Error\n");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+   return 0;
+}

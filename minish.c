@@ -21,10 +21,10 @@ int main() {
         fgets(str,MAXLINE,stdin);
         if(str!=NULL) {
 	if(strcmp(str,"\n")!=0){
-		historial=fopen("minish_history.txt","a")
+		historial=fopen("minish_history.txt","a");
             argc =linea2argv(str,argc,argv);
        	    globalstatret=ejecutar(argc,argv);
-		fprintf(historial,"%s\n",argv[0])
+		fprintf(historial,"%s\n",argv[0]);
 		fclose(historial);
 	}}
         else {
