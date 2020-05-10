@@ -28,7 +28,7 @@ int main() {
 		fclose(historial);
 	}}
         else {
-            //handelear error de strcmp
+            // todo handelear error de strcmp
         }
     }
 
