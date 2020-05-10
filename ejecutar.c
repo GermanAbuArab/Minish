@@ -17,15 +17,29 @@ struct builtin_struct builtin_arr[] = {
     { NULL, NULL, NULL }
 };
 
+int flag=0;
 
+void interrumpir(){
+flag = 1;
+printf("Se interrumpio una funcion interna");
+}
 
-
+void interrumpir2(){
+printf("Se quiso interrumpir una funcion externa");
+}
 
 int ejecutar(int argc, char **argv) {
+	flag=0;
     for(int i=0; i<12; i++) {
         if (strcmp(argv[0], builtin_arr[i].cmd) == 0) {
-            return  builtin_arr[i].func(argc, argv);
-        }
+
+         signal(SIGINT,interrumpir);
+	if(flag!=1)
+	  return  builtin_arr[i].func(argc, argv);
+ 	else return 0;
+       }
     }
-    return   externo(argc, argv);
+    signal(SIGINT,interrumpir2);
+    return externo(argc, argv);
+
 }

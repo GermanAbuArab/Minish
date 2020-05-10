@@ -8,23 +8,30 @@
 #define MAXCWD 1024         // tamaño máximo para alojar el pathname completo del directorio corriente
 #define MAXWORDS 256        // cantidad máxima de palabras en la línea
 
+ int globalstatret; 
 
 
 int main() {
+    FILE *historial; 
     char str[MAXLINE];
     int argc = MAXWORDS;
     char *argv[MAXWORDS];
- 	int val=0;
-    while(val!=10) {
-        printf("(minish) >");
+    while(globalstatret!=10) {
+	 fprintf(stderr, "(minish)%s:%s>", getenv("USER"), getcwd(str, 100));  
         fgets(str,MAXLINE,stdin);
         if(str!=NULL) {
+	if(strcmp(str,"\n")!=0){
+		historial=fopen("minish_history.txt","a")
             argc =linea2argv(str,argc,argv);
-       	    val=ejecutar(argc,argv);
-       	}
+       	    globalstatret=ejecutar(argc,argv);
+		fprintf(historial,"%s\n",argv[0])
+		fclose(historial);
+	}}
         else {
             //handelear error de strcmp
         }
     }
 
 }
+
+
