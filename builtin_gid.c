@@ -13,7 +13,8 @@ int builtin_gid(int argc, char **argv) {
     }
 
     if (group = malloc(nogroups * sizeof(gid_t)) == NULL) {
-//todo errno
+
+//todo errno1966019f26da57353bb44c0b6f970
         printf("Error interno de Memoria \n");
         return -1;
     }
