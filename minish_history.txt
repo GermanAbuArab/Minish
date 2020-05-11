@@ -42,3 +42,6 @@ cd
 cd
 getenv
 exit
+cd
+cd
+cd
