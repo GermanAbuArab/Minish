@@ -37,3 +37,8 @@ unsetenv
 /home/gabuarab/fuentes_c/semana7/Minish
 /home/gabuarab/fuentes_c/semana7/Minish
 /home/gabuarab/fuentes_c/semana7/Minish
+cd
+cd
+cd
+getenv
+exit
