@@ -1,12 +1,5 @@
 #include "minish.h"
 
-
-int builtin_dir(int argc, char **argv) {
-    return 0 ;
-
-
-}
-/*
 int builtin_dir (int argc, char ** argv) {
     DIR *d;
     struct dirent *dir;
@@ -37,6 +30,3 @@ int builtin_dir (int argc, char ** argv) {
     return -1;
 }
 
-
-
-*/

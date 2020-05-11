@@ -20,7 +20,7 @@ int builtin_gid(int argc, char **argv) {
     }
 
 
-    if (getgroups(nogroups, group) != -1) {
+    if (group=getgroups(nogroups, group) != -1) {
 
         printf("Grupos secundarios:");
         for (int i = 0; i < nogroups; i++) {
