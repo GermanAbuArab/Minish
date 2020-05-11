@@ -6,9 +6,9 @@ int builtin_setenv (int argc, char ** argv) {
         if(setenv(argv[1],argv[2],1) == 0)
             return 0;
         else {
-	// TODO HANDELEAR ERRORES 
-        //    printf("No se pudo cambiar la variable de ambiente %s por %s",argv[1], argv[2]);
-          //  return 0;
+            // TODO HANDELEAR ERRORES
+            //    printf("No se pudo cambiar la variable de ambiente %s por %s",argv[1], argv[2]);
+            //  return 0;
         }
     }
     printf("No hay suficientes argumentos\n");          //Si no hay argue$
