@@ -18,9 +18,7 @@ int builtin_gid(int argc, char **argv) {
         printf("Error interno de Memoria \n");
         return -1;
     }
-
-
-    if (getgroups(nogroups, group) != -1) {
+    if (group=getgroups(nogroups, group) != -1) { //group= getgroup
 
         printf("Grupos secundarios:");
         for (int i = 0; i < nogroups; i++) {
