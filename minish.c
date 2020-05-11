@@ -9,13 +9,15 @@
 #define MAXWORDS 256        // cantidad máxima de palabras en la línea
 
  int globalstatret; 
-
+ char *oldpwd;
+ char *cwd;
 
 int main() {
     FILE *historial; 
     char str[MAXLINE];
     int argc = MAXWORDS;
     char *argv[MAXWORDS];
+    cwd=getcwd(str,100); //todo fijarse si no tira errores
     while(globalstatret!=10) {
 	 fprintf(stderr, "(minish)%s:%s>", getenv("USER"), getcwd(str, 100));  
         fgets(str,MAXLINE,stdin);

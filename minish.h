@@ -38,7 +38,8 @@
 
 // Variables
 extern int globalstatret;    // guarda status del ultimo comando - deberá definirse en el main
-
+extern char *oldpwd; // guarda la ruta del directorio anterior
+extern char *cwd; // guarda la ruta del directorio actual
 // Funciones
 
 extern int builtin_exit (int argc, char ** argv);
