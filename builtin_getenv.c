@@ -5,7 +5,7 @@ int builtin_getenv(int argc, char **argv) {
     for(int i=1;i<argc;++i) {
         char *var=getenv(argv[i]);
         if(var!=NULL) {
-            printf("%s \n",var);
+            printf("%s : %s \n",argv[i],var);
         }
         else {
             printf("No se encontro la variable de ambiente %s \n",argv[i]);
@@ -13,7 +13,7 @@ int builtin_getenv(int argc, char **argv) {
     }
     if(argv[1]==NULL) {
         printf("No se dio ninguna variable para ver su valor\n");
-        return 0;
+        return -1;
     }
     return 0;
 }
