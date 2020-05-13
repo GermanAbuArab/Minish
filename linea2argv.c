@@ -18,5 +18,6 @@ int linea2argv(char *linea, int argc, char ** argv) {
             lineaCopia++;
         }
     }
+    argc=i;
     return i;
 }

@@ -59,3 +59,12 @@ exit
 cd
 cd
 cd
+cd
+cd
+gif
+gid
+exit
+cd
+cd
+cd
+cd

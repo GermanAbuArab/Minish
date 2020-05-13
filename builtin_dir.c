@@ -2,31 +2,40 @@
 
 int builtin_dir (int argc, char ** argv) {
     DIR *d;
+    int i;
     struct dirent *dir;
-    printf("DIR %s\n", getenv("PWD"));
-    d = opendir(getenv("PWD"));                         //abro directorio actual
-    char *cont[1000];                           //array de contenido para ordenar alfabeticamente
-    int i = 0;
-    if (d)
-    {
-        while ((dir = readdir(d)) != NULL)     //uso readdir para leer su contenido
-        {
-            if(argc<=1) {
-                cont[i++] = dir->d_name;             //agrego a array
-            } else {
-                if(strstr(dir->d_name, argv[1]))   //si hay una parte de una palabra imprimo aca
-                    cont[i++] = dir->d_name;
-            }
-        }
-
-        closedir(d);
-        if( i > 0) {
-            qsort(cont, i, sizeof(char*), myCompare);       //qsort es una funcion del sistema que ordena usando quicksort, o sea que se hace $
-            for (int inx = 0; inx < i; inx++)
-                printf("%s\n", cont[inx]);
-        }
-        return 0;
+    char *directorios[MAXLINE];
+    if((d=opendir("."))== NULL) {
+        printf("Error abriendo el directorio actual :\n");
+        return -1;
     }
+    for(i=0; (dir=readdir(d))!=NULL; ++i) { //Guardo el nombre de los directorios
+        directorios[i]=dir->d_name;
+    }
+    char *aux;
+    if (closedir(d)==-1){
+    perror("Error al cerrar el directorio");	
     return -1;
+    }
+    for(int j=0;j<i-1;++j){ //Ordeno de forma Alfabetica los directorios
+	for(int k=0;k<i-j-1;++k) {
+	   if(strcmp(directorios[k],directorios[k+1])>0){
+	    	aux=directorios[k];
+	    	directorios[k]=directorios[k+1];
+		directorios[k+1]=aux;
+	   }
+	}
+    }
+    for(int g=0;g<i;++g){
+//	if((g+1)%8==0)printf("\n");
+	if((argc>1) &&(strstr(directorios[g],argv[1])==NULL)){
+
+	}else{
+	printf("%s\n",directorios[g]);
+	}
+   }
+   return 0;
 }
+
+//abrir ordenar e impirmir
 
