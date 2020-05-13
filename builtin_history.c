@@ -2,7 +2,7 @@
 #define SIZE 100
 int builtin_history(int argc, char **argv)
 {
-    
+    printf("hola");
     FILE *h;
     char * nombre[SIZE];
     int cantComAnteriores = 0;
@@ -15,6 +15,7 @@ int builtin_history(int argc, char **argv)
     else if (argc == 1)
     {
         cantComAnteriores = 10;   // no se manda un  segundo argumento entonces por defecto es 10
+	printf('hola');
     }
     else{
         printf("%s solo lleva un argumeto usted puso %d \n",argv[0],argc );  // se le pasaron mas argumentos qe los necesarios
@@ -32,8 +33,9 @@ int builtin_history(int argc, char **argv)
     return 0;
 }
 
-void printlines(int SIZE,FILE h,int cantComAnteriores){
-    char liner[MAXLINE];
+void printlines(int k,FILE * h,int cantComAnteriores){
+    char *liner[MAXLINE];
+    char line[MAXLINE];
     int indice =0;
     while(fgets(line,SIZE,h) != NULL){
         liner[indice++]=strdup(line);
