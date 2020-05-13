@@ -1,5 +1,4 @@
 #include "minish.h"
-
 int builtin_dir (int argc, char ** argv) {
     DIR *d;
     int i;
