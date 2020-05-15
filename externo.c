@@ -1,6 +1,6 @@
 #include "minish.h"
 
-int externo(int argc, char **argv) {
+int externo(__attribute__((unused))int argc, char **argv) {
     pid_t p,waitp;
     int estadoretorno;
     p= fork();//<0 error,  =0  proceso hijo,  > 0 proceso padre

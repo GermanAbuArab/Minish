@@ -1,5 +1,5 @@
 #include "minish.h"
-int builtin_gid(int argc, char **argv) {
+int builtin_gid(__attribute__((unused))int argc,__attribute__((unused)) char **argv) {
     gid_t gid = getgid();// no hay que handeleaer errores porque nunca falla
     printf("El id del grupo Principal es %d\n", gid);
     gid_t *group;

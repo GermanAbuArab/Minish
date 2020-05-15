@@ -28,7 +28,7 @@ void interrumpir2() {
     printf("Se quiso interrumpir una funcion externa");
 }
 
-int ejecutar(int argc, char **argv) {
+int ejecutar(__attribute__((unused))int argc, char **argv) {
     flag=0;
     for(int i=0; i<12; i++) {
         if (strcmp(argv[0], builtin_arr[i].cmd) == 0) {

@@ -1,6 +1,6 @@
 #include "minish.h"
 
-int builtin_help(int argc, char **argv) {
+int builtin_help(__attribute__((unused))int argc, char **argv) {
     if(argv[1]!=NULL) {
         for(int i=0; i<12; i++) {
             if (strcmp(argv[1], builtin_arr[i].cmd) == 0) {

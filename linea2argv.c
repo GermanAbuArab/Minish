@@ -1,6 +1,6 @@
 #include "minish.h"
 
-int linea2argv(char *linea, int argc, char ** argv) {
+int linea2argv(char *linea,__attribute__((unused)) int argc, char ** argv) {
     int i=0;
     char *lineaCopia =linea;
     int enpalabra=0;
