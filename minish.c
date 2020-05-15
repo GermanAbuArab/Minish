@@ -15,19 +15,22 @@ char *cwd =NULL;
 int main() {
     FILE *historial;
     char str[MAXLINE];
+    char dirHist[MAXLINE];
     int argc = MAXWORDS;
     char *argv[MAXWORDS];
+
     while(globalstatret!=10) {
         fprintf(stderr, "(minish)%s:%s>", getenv("USER"),getcwd(str,100));
         cwd=strdup(str);
+        snprintf(dirHist, MAXLINE, "%s/%s",getenv("HOME"),HISTORY_FILE);
         fgets(str,MAXLINE,stdin);
         if(str!=NULL) {
             if(strcmp(str,"\n")!=0) {
-                //  historial=fopen("minish_history.txt","a");
+                historial=fopen(dirHist,"a");
                 argc =linea2argv(str,argc,argv);
                 globalstatret=ejecutar(argc,argv);
-                // fprintf(historial,"%s\n",argv[0]);
-                // fclose(historial);
+                fprintf(historial,"%s\n",argv[0]);
+                fclose(historial);
             }
         }
         else {
