@@ -4,11 +4,14 @@ void printlines(FILE * h,int cantComAnteriores) {
     char *liner[MAXLINE];
     char line[MAXLINE];
     int indice =NULL ;
+    int aux= 0;
     while((fgets(line,MAXLINE,h) != NULL)) {
         if(indice==NULL) {
             indice=0;
         }
-        liner[indice]=strdup(line);
+
+        liner[indice]=malloc(strlen(line)+1);
+        strcpy(liner[indice],line);
         indice++;
     }
     if(indice!=NULL) {
@@ -17,7 +20,13 @@ void printlines(FILE * h,int cantComAnteriores) {
             if(i>=0)
                 printf("%s\n",liner[i]);
         }
-    }
+       }
+       while(aux<indice){
+            free(liner[aux]);
+            aux++;
+         }
+
+
 }
 
 int builtin_history(int argc, char **argv)
@@ -44,11 +53,13 @@ int builtin_history(int argc, char **argv)
     h = fopen(nombre, "r");  //abro el archivo y lo guardo en h con "r" por que es lectura
     if(h == NULL) { // si hubo un error
         perror("Error al abrir nombre");
+    
         return-1;
     } else {
         printlines(h,cantComAnteriores);
+        
     }
-
+    fclose(h);
     return 0;
 }
 

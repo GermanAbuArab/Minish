@@ -1,3 +1,4 @@
+
 #include "minish.h"
 
 int externo(__attribute__((unused))int argc, char **argv) {
@@ -12,7 +13,9 @@ int externo(__attribute__((unused))int argc, char **argv) {
         if(execvp(argv[0],argv)== -1)
         {
             perror("Error al intentar ejecutar un proceso externo:");
-            exit(1);// para matar al hijo
+            //exit(1);
+            return -1;
+                // para matar al hijo
         }
     }
     else { // proceso padre (yo) tengo que esperar al hijo
@@ -28,6 +31,7 @@ int externo(__attribute__((unused))int argc, char **argv) {
 
 
 //fork  procesos simultaneops llamos al externo(extect) y vuelvo
+
 
 
 
