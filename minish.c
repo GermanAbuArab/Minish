@@ -14,11 +14,11 @@ char *cwd =NULL;
 int argc;
 
 
-    void signal_handler(int sig){
-        printf(" Signal number: %d\n", sig);
-        argc = 0;
-        return;
-    }
+void signal_handler(int sig) {
+    printf(" Signal number: %d\n", sig);
+    argc = 0;
+    return;
+}
 
 int main() {
     FILE *historial;
@@ -33,13 +33,13 @@ int main() {
 
     while(globalstatret!=10) {
 
-         if (sigaction(SIGINT, &new_action, NULL) == -1) {
-                continue;   
-                }   
-       
+        if (sigaction(SIGINT, &new_action, NULL) == -1) {
+            continue;
+        }
 
-        
-       // sigaction(SIGINT, &new_action, NULL);
+
+
+        // sigaction(SIGINT, &new_action, NULL);
         //------------------------------///
         fprintf(stderr, "(minish)%s:%s>", getenv("USER"),getcwd(str,100));
         cwd=malloc(strlen(str)+1);
@@ -58,8 +58,8 @@ int main() {
                 globalstatret=ejecutar(argc,argv);
                 fprintf(historial,"%s\n",argv[0]);
 
-            
-        
+
+
             }
         }
 
@@ -68,7 +68,7 @@ int main() {
         }
         free(cwd);
     }
-    
+
 
 
 }

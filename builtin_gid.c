@@ -25,7 +25,7 @@ int builtin_gid(__attribute__((unused))int argc,__attribute__((unused)) char **a
         printf("\n");
     } else {
 
-       free(group);
+        free(group);
         return -1;
     }
     free(group);

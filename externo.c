@@ -15,7 +15,7 @@ int externo(__attribute__((unused))int argc, char **argv) {
             perror("Error al intentar ejecutar un proceso externo:");
             //exit(1);
             return -1;
-                // para matar al hijo
+            // para matar al hijo
         }
     }
     else { // proceso padre (yo) tengo que esperar al hijo
